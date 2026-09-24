@@ -11,13 +11,16 @@ Run: `npm install --legacy-peer-deps && npm run dev` (port 3000). Screenshots: `
 - Bihar map = `src/assets/images/bihar-map.png` (transparent PNG).
 - Favicons/manifest in `public/`.
 
-## Known gaps / next
-- Mobile: only About checked; Learn + Impact + Home mobile not verified.
-- Latest torn-edge tweak (shallower tears, extra section padding) and slower typing/count-up not visually re-verified.
-- Only 5 stock photos exist; many reference photos are crops/reuse. Torn edges still simpler than reference.
-- Footer: no Privacy Policy page (old footer had none); Courses/Workshops/Pricing/Blog links dropped.
-- Nav "Home" is a tab now (no link to legacy index.html).
-- OG image path is relative; set absolute URL after deploy.
+## Status (end of session 2)
+- Pushed to https://github.com/Prabuddha747/GardaAi_Web (main). Vercel deploy: install fixed (`.npmrc` + removed esbuild); domain gardaai.in.
+- Done: real routes + prerender, SEO/JSON-LD/favicons/sitemap, chatbot (`api/chat.ts`), video slots (`.env.example`), CSS purge, images moved to `public/images`, mentor photo on About, scroll-reveal on About/Learn/Impact.
+
+## Next steps
+- Vercel: set `ANTHROPIC_API_KEY` (revoke the old leaked key — it's still in local `legacy/`, which is git-ignored), add domain, submit sitemap in Search Console, verify chatbot + `/about` on prod.
+- Mobile not verified on Home/Learn/Impact (only About was).
+- Image compression (hero/team PNGs are 1-2MB) — Lighthouse will flag; deferred by request.
+- Optional: designed 1200x630 OG banner (`public/images/og-image.jpg` is a crop of mentor.png); About chapter timeline (00:00…) still describes the old story video; Home testimonial names are tied to HOME_2-4 videos.
+- Chatbot has no rate limit; no Privacy Policy page; torn-edge tweak / slower typing not re-verified visually.
 
 ## Deploy / env (Vercel)
 - Env: see `.env.example`. `ANTHROPIC_API_KEY` (server only) powers `api/chat.ts` (used by `components/Chatbot.tsx`); local test with `vercel dev`.
