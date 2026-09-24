@@ -1,0 +1,13 @@
+{
+  "name": "GardaAI Academy",
+  "short_name": "GardaAI",
+  "description": "AI seekho, apni language mein — practical AI learning for Bihar.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#F3EEE2",
+  "theme_color": "#0C1B1E",
+  "icons": [
+    { "src": "/icons/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ]
+}

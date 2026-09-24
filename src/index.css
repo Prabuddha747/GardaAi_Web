@@ -1,0 +1,223 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background-color: #f7f5ef;
+    color: #1c1917;
+  }
+}
+
+.font-editorial {
+  font-family: 'Newsreader', Georgia, Cambria, 'Times New Roman', Times, serif;
+}
+
+.font-handwritten {
+  font-family: 'Kalam', 'Caveat', cursive;
+}
+
+/* =========================================================
+   GARDAAI PAPER / PRINT SYSTEM
+   ========================================================= */
+.paper-section {
+  position: relative;
+  overflow: visible !important;
+  isolation: isolate;
+  z-index: 1;
+}
+
+.torn-top,
+.torn-bottom {
+  position: relative;
+  overflow: visible !important;
+}
+
+/*
+ * Real paper texture: two independent SVG-noise layers are used instead of
+ * a flat gradient. The first gives recycled-paper grain; the second gives
+ * slower, fibrous tonal variation across the whole sheet.
+ */
+.paper-section::before,
+.paper-sheet::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.24;
+  mix-blend-mode: multiply;
+  background-image:
+    radial-gradient(circle at 12% 18%, rgba(142, 118, 78, 0.08) 0, transparent 34%),
+    radial-gradient(circle at 84% 72%, rgba(126, 102, 66, 0.07) 0, transparent 38%),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240' viewBox='0 0 240 240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.72' numOctaves='5' seed='31' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .28 0 0 0 0 .22 0 0 0 0 .14 0 0 0 .34 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='420' height='420' viewBox='0 0 420 420'%3E%3Cfilter id='f'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.035 .42' numOctaves='3' seed='77' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .38 0 0 0 0 .31 0 0 0 0 .20 0 0 0 .22 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23f)'/%3E%3C/svg%3E");
+  background-size: auto, auto, 240px 240px, 420px 420px;
+  background-repeat: no-repeat, no-repeat, repeat, repeat;
+}
+
+/* Fine paper fibres / imperfect printing. Kept separate so the grain remains
+   visible even over very large empty areas of a section. */
+.paper-section::after,
+.paper-sheet::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.10;
+  mix-blend-mode: multiply;
+  background-image:
+    repeating-linear-gradient(92deg, rgba(92, 72, 42, 0.055) 0 1px, transparent 1px 7px),
+    repeating-linear-gradient(2deg, rgba(255, 255, 255, 0.12) 0 1px, transparent 1px 11px),
+    radial-gradient(circle at 70% 35%, rgba(95, 73, 43, 0.05) 0 1px, transparent 1.5px);
+  background-size: 17px 17px, 23px 23px, 13px 13px;
+}
+
+.paper-content {
+  position: relative;
+  z-index: 3;
+}
+
+/* Make the sheet feel slightly lifted from the sheet underneath. */
+.paper-drop-shadow {
+  filter: drop-shadow(0 8px 7px rgba(35, 25, 15, 0.13));
+}
+
+.paper-drop-shadow-top {
+  filter: drop-shadow(0 -6px 7px rgba(35, 25, 15, 0.10));
+}
+
+/* Physical photo scraps with slight tilt */
+.photo-scrap {
+  position: relative;
+  transition: transform 0.25s ease-out;
+}
+.photo-scrap-tilt-left {
+  transform: rotate(-1deg);
+}
+.photo-scrap-tilt-right {
+  transform: rotate(1deg);
+}
+.photo-scrap-tilt-left-sm {
+  transform: rotate(-0.5deg);
+}
+.photo-scrap-tilt-right-sm {
+  transform: rotate(0.6deg);
+}
+.photo-scrap:hover {
+  transform: rotate(0deg) scale(1.01);
+}
+
+.vintage-stamp {
+  border: 1.5px dashed #44403c;
+  letter-spacing: 0.08em;
+}
+
+/* Tape strip effect */
+.mask-tape {
+  position: relative;
+}
+.mask-tape::before {
+  content: '';
+  position: absolute;
+  top: -8px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-1deg);
+  width: 90px;
+  height: 20px;
+  background-color: rgba(245, 238, 220, 0.85);
+  box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+  border-left: 2px dashed rgba(210, 195, 170, 0.5);
+  border-right: 2px dashed rgba(210, 195, 170, 0.5);
+  z-index: 10;
+}
+
+/* Slightly stronger texture on desktop where large empty paper areas are visible. */
+@media (min-width: 768px) {
+  .paper-section::before { opacity: 0.30; }
+  .paper-section::after { opacity: 0.13; }
+}
+
+.paper-content {
+  position: relative;
+  z-index: 2;
+}
+
+/* Very subtle physical paper sheet drop shadow */
+.paper-drop-shadow {
+  filter: drop-shadow(0 6px 5px rgba(35, 25, 15, 0.11));
+}
+
+.paper-drop-shadow-top {
+  filter: drop-shadow(0 -5px 5px rgba(35, 25, 15, 0.08));
+}
+
+/* Physical photo scraps with slight tilt */
+.photo-scrap {
+  position: relative;
+  transition: transform 0.25s ease-out;
+}
+.photo-scrap-tilt-left {
+  transform: rotate(-1deg);
+}
+.photo-scrap-tilt-right {
+  transform: rotate(1deg);
+}
+.photo-scrap-tilt-left-sm {
+  transform: rotate(-0.5deg);
+}
+.photo-scrap-tilt-right-sm {
+  transform: rotate(0.6deg);
+}
+.photo-scrap:hover {
+  transform: rotate(0deg) scale(1.01);
+}
+
+.vintage-stamp {
+  border: 1.5px dashed #44403c;
+  letter-spacing: 0.08em;
+}
+
+/* Tape strip effect */
+.mask-tape {
+  position: relative;
+}
+.mask-tape::before {
+  content: '';
+  position: absolute;
+  top: -8px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-1deg);
+  width: 90px;
+  height: 20px;
+  background-color: rgba(245, 238, 220, 0.85);
+  box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+  border-left: 2px dashed rgba(210, 195, 170, 0.5);
+  border-right: 2px dashed rgba(210, 195, 170, 0.5);
+  z-index: 10;
+}
+
+/* ---- redesign type + ink ---- */
+.hl-serif { font-family: 'Newsreader', Georgia, serif; font-weight: 800; letter-spacing: -0.035em; line-height: 0.95; }
+.hl-impact { font-family: 'Archivo', 'Arial Narrow', sans-serif; font-stretch: 75%; font-weight: 900; letter-spacing: -0.03em; word-spacing: 0.12em; line-height: 0.92; }
+.hl-sans { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; letter-spacing: -0.03em; line-height: 1; }
+.mono-label { font-family: ui-monospace, 'SF Mono', Menlo, monospace; letter-spacing: .12em; text-transform: uppercase; }
+.grid-bg { background-image: linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px); background-size: 32px 32px; }
+.ink-photo { filter: grayscale(1) contrast(1.1); }
+
+.sr { opacity: 0; transform: translateY(26px); transition: opacity .7s ease-out, transform .7s ease-out; }
+.sr.sr-in { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) { .sr { opacity: 1; transform: none; transition: none; } }
+
+/* varied reveals: headings wipe in, paragraphs unblur, quotes slide from the side */
+h2.sr { transform: perspective(700px) rotateX(-75deg); transform-origin: 50% 0; transition: opacity .8s ease-out, transform .9s cubic-bezier(.2,.8,.2,1); }
+h2.sr.sr-in { transform: none; }
+p.sr { transform: none; filter: blur(8px); transition: opacity .8s ease-out, filter .8s ease-out; }
+p.sr.sr-in { filter: none; }
+blockquote.sr { transform: translateX(-32px); }
+.typing-caret { display: inline-block; width: .06em; height: .85em; margin-left: .04em; background: currentColor; vertical-align: -0.05em; animation: caret .6s steps(1) infinite; }
+@keyframes caret { 50% { opacity: 0; } }
+.grid-bg { background-image: linear-gradient(rgba(140,220,235,.09) 1px, transparent 1px), linear-gradient(90deg, rgba(140,220,235,.09) 1px, transparent 1px); background-size: 36px 36px; }
+
+/* orange sheets: stronger grain so the paper reads as paper, not flat colour */
+.paper-orange::before { opacity: .55 !important; }

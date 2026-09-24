@@ -1,0 +1,6 @@
+{
+  "name": "GardaAI Academy - AI Seekho Apni Language Mein",
+  "description": "Bihar's grassroots AI learning platform bringing practical AI skills in simple Hinglish to classrooms, local businesses, and students.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
