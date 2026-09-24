@@ -215,6 +215,10 @@ h2.sr.sr-in { transform: none; }
 p.sr { transform: none; filter: blur(8px); transition: opacity .8s ease-out, filter .8s ease-out; }
 p.sr.sr-in { filter: none; }
 blockquote.sr { transform: translateX(-32px); }
+li.sr { transform: translateX(-18px); }
+/* handwritten notes keep their inline rotation, so they only fade + unblur */
+.font-handwritten.sr { filter: blur(6px); transition: opacity .9s ease-out, filter .9s ease-out; }
+.sr.sr-in { filter: none; }
 .typing-caret { display: inline-block; width: .06em; height: .85em; margin-left: .04em; background: currentColor; vertical-align: -0.05em; animation: caret .6s steps(1) infinite; }
 @keyframes caret { 50% { opacity: 0; } }
 .grid-bg { background-image: linear-gradient(rgba(140,220,235,.09) 1px, transparent 1px), linear-gradient(90deg, rgba(140,220,235,.09) 1px, transparent 1px); background-size: 36px 36px; }

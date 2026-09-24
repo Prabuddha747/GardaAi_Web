@@ -142,11 +142,14 @@ export const Count: React.FC<{ to: string }> = ({ to }) => {
 /** One observer: fades/slides up headings, paragraphs, quotes etc. as they scroll in. */
 export const useScrollReveal = (dep: unknown) => {
   React.useEffect(() => {
-    const els = document.querySelectorAll<HTMLElement>('main :is(h2, p, blockquote, dt, dd, .reveal):not(.home-page *)');
-    const io = new IntersectionObserver((es) => es.forEach((e) => {
-      if (e.isIntersecting) { e.target.classList.add('sr-in'); io.unobserve(e.target); }
+    const els = document.querySelectorAll<HTMLElement>('main :is(h2, h3, p, li, blockquote, dt, dd, figcaption, .mono-label, .font-handwritten, .reveal):not(.home-page *)');
+    const io = new IntersectionObserver((es) => es.filter((e) => e.isIntersecting).forEach((e, i) => {
+      // elements entering together cascade 80ms apart
+      (e.target as HTMLElement).style.transitionDelay = `${i * 80}ms`;
+      e.target.classList.add('sr-in');
+      io.unobserve(e.target);
     }), { threshold: 0.15 });
-    els.forEach((el) => { el.classList.add('sr'); io.observe(el); });
+    els.forEach((el) => { if (!el.parentElement?.closest('.sr')) { el.classList.add('sr'); io.observe(el); } }); // nested ones ride with their parent
     return () => io.disconnect();
   }, [dep]);
 };
