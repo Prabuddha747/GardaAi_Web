@@ -26,7 +26,10 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
           <div>
             <div className="flex items-center gap-3">
               <img src={IMG.logo} alt="" className="w-11 h-11 rounded-lg object-contain" />
-              <span className="text-xl font-extrabold">Garda<span className="text-[#2dd4e0]">AI</span> Academy</span>
+              <span className="flex flex-col leading-none">
+                <span className="text-xl font-extrabold">Garda<span className="text-[#2dd4e0]">AI</span> Academy</span>
+                <span className="mt-1.5 text-[11px] font-semibold tracking-wide bg-gradient-to-r from-[#2dd4e0] to-[#ff8a1a] bg-clip-text text-transparent">Rooted in Bihar. Built for Bharat.</span>
+              </span>
             </div>
             <p className="mt-5 text-white/60 leading-relaxed max-w-sm">
               Bihar's leading AI education academy — making Artificial Intelligence practical, accessible, and genuinely useful for every student and educator across Bihar.

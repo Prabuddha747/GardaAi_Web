@@ -23,8 +23,11 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, onTabChange }) => {
       <div className="max-w-[1240px] mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-3">
         <a href="/" onClick={(e) => go(e, 'home')} className="flex items-center gap-2 cursor-pointer group shrink-0">
           <img src={IMG.logo} alt="GardaAI Academy" className="w-10 h-10 rounded-lg object-contain group-hover:scale-105 transition-transform" />
-          <span className="text-lg sm:text-xl font-bold tracking-tight text-[#1c1917]">
-            Garda<span className="text-[#0d828a]">AI</span> Academy
+          <span className="flex flex-col leading-none">
+            <span className="text-lg sm:text-xl font-bold tracking-tight text-[#1c1917]">
+              Garda<span className="text-[#0d828a]">AI</span> Academy
+            </span>
+            <span className="mt-1 text-[9px] sm:text-[10px] font-semibold tracking-wide bg-gradient-to-r from-[#0d828a] to-[#f95716] bg-clip-text text-transparent">Rooted in Bihar. Built for Bharat.</span>
           </span>
         </a>
 
