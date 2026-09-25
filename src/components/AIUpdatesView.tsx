@@ -6,6 +6,8 @@ interface NewsItem { id: string; title: string; source: string; date: string; im
 interface Feed { items: NewsItem[]; updated: string }
 
 const CATS = ['All', 'Models', 'Tools', 'Education', 'India', 'Safety', 'Business'];
+const ROWS = 3;
+const cols = () => (typeof window === 'undefined' ? 4 : matchMedia('(min-width:1024px)').matches ? 4 : matchMedia('(min-width:640px)').matches ? 2 : 1); // mirrors the grid's sm/lg breakpoints
 const REFRESH_MS = 30 * 60 * 1000; // matches the server's edge cache, so polling costs no extra API calls
 const CACHE = 'gardaai-ai-news';
 
@@ -39,6 +41,7 @@ export const AIUpdatesView: React.FC = () => {
   const [cat, setCat] = useState('All');
   const [q, setQ] = useState('');
   const [sort, setSort] = useState<'new' | 'old'>('new');
+  const [more, setMore] = useState(false);
 
   const load = useCallback(async () => {
     setState('loading');
@@ -55,6 +58,7 @@ export const AIUpdatesView: React.FC = () => {
   }, []);
 
   useEffect(() => { const c = readCache(); if (c) setFeed(c); load(); }, [load]);
+  useEffect(() => setMore(false), [cat, q, sort]);
   useEffect(() => { const t = setInterval(load, REFRESH_MS); return () => clearInterval(t); }, [load]);
 
   const list = useMemo(() => {
@@ -63,6 +67,8 @@ export const AIUpdatesView: React.FC = () => {
       .filter((n) => (cat === 'All' || n.cat === cat) && (!s || `${n.title} ${n.source} ${n.summary}`.toLowerCase().includes(s)))
       .sort((a, b) => (sort === 'new' ? b.date.localeCompare(a.date) : a.date.localeCompare(b.date)));
   }, [feed, cat, q, sort]);
+
+  const limit = more ? Infinity : ROWS * cols();
 
   const go = (id: string) => document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
 
@@ -119,8 +125,11 @@ export const AIUpdatesView: React.FC = () => {
             </div>
           ) : list.length ? (
             <>
-              <div className="mt-6 grid sm:grid-cols-2 lg:grid-cols-4 gap-4">{list.map((n) => <Card key={n.id} n={n} />)}</div>
+              <div className="mt-6 grid sm:grid-cols-2 lg:grid-cols-4 gap-4">{list.slice(0, limit).map((n) => <Card key={n.id} n={n} />)}</div>
               <div className="mt-8 text-center">
+                {list.length > limit && (
+                  <button onClick={() => setMore(true)} className="mb-3 border-2 border-[#087F8C] text-[#087F8C] font-semibold px-14 py-2 rounded-sm cursor-pointer hover:bg-[#087F8C]/10">Load more news</button>
+                )}
                 <div className="text-xs text-[#645e52]">Har story original publisher website par khulti hai.</div>
               </div>
             </>
