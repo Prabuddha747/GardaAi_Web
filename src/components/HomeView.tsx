@@ -361,7 +361,7 @@ export const HomeView: React.FC = () => {
                   const i = c * 4 + j;
                   return (
                     <div className={`faq-i${faq === i ? ' open' : ''}`} key={q} onClick={() => setFaq(faq === i ? -1 : i)}>
-                      <div className="faq-q"><span>{q}</span><div className="faq-ic">+</div></div>
+                      <div className="faq-q"><span>{q}</span><div className="faq-ic" /></div>
                       <div className="faq-a"><div className="faq-a-in">{a}</div></div>
                     </div>
                   );

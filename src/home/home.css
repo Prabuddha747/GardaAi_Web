@@ -173,7 +173,9 @@ p{line-height:1.78;font-size:.98rem;color:var(--body)}
 .faq-i.open{box-shadow:var(--s2)}
 .faq-q{display:flex;align-items:center;justify-content:space-between;padding:1.2rem 1.4rem;cursor:pointer;gap:1rem}
 .faq-q span{font-weight:700;font-size:.92rem;color:var(--ink);line-height:1.45}
-.faq-ic{width:26px;height:26px;border-radius:50%;background:var(--surf);display:grid;place-items:center;flex-shrink:0;color:var(--teal);font-size:1.1rem;font-weight:700;transition:background .2s,transform .3s}
+.faq-ic{width:26px;height:26px;border-radius:50%;background:var(--surf);display:grid;place-items:center;flex-shrink:0;color:var(--teal);transition:background .2s,transform .3s}
+.faq-ic::before,.faq-ic::after{content:'';grid-area:1/1;background:currentColor;border-radius:1px}
+.faq-ic::before{width:10px;height:2px}.faq-ic::after{width:2px;height:10px}
 .faq-i.open .faq-ic{background:var(--teal);color:white;transform:rotate(45deg)}
 .faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease}
 .faq-i.open .faq-a{max-height:300px}

@@ -15,7 +15,12 @@ Run: `npm install --legacy-peer-deps && npm run dev` (port 3000). Screenshots: `
 - Pushed to https://github.com/Prabuddha747/GardaAi_Web (main). Vercel deploy: install fixed (`.npmrc` + removed esbuild); domain gardaai.in.
 - Done: real routes + prerender, SEO/JSON-LD/favicons/sitemap, chatbot (`api/chat.ts`), video slots (`.env.example`), CSS purge, images moved to `public/images`, mentor photo on About, scroll-reveal on About/Learn/Impact.
 
+## AI Updates (`/ai-updates`)
+Impact page is hidden (removed from nav/footer/routes/sitemap; `ImpactView.tsx` kept — re-add to `types.ts`, `routes.ts`, `App.tsx`, Navbar/Footer to restore; `/impact` now falls back to Home).
+`api/news.ts` (freenewsapi.io, key `NEWS_API_KEY`, ~3 req/s, 5,000/day) → `AIUpdatesView.tsx`. List endpoint has no images/search, so it pages `topic`+`in_title=AI`, regex-filters, then `/v1/details` for image + `incipit` + `original_url`. ~14s cold, edge-cached 30 min; client keeps last feed in localStorage. Dev: served by a vite middleware (`vite.config.ts`).
+
 ## Next steps
+- Vercel: add `NEWS_API_KEY` for AI Updates.
 - Vercel: set `ANTHROPIC_API_KEY` (revoke the old leaked key — it's still in local `legacy/`, which is git-ignored), add domain, submit sitemap in Search Console, verify chatbot + `/about` on prod.
 - Mobile not verified on Home/Learn/Impact (only About was).
 - Image compression (hero/team PNGs are 1-2MB) — Lighthouse will flag; deferred by request.

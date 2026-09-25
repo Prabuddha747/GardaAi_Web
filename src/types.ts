@@ -1,4 +1,4 @@
-export type ActiveTab = 'home' | 'about' | 'learn' | 'impact';
+export type ActiveTab = 'home' | 'about' | 'learn' | 'ai-updates' | 'privacy';
 
 export interface VideoItem {
   id: string;

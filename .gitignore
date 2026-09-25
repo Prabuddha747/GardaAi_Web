@@ -9,3 +9,6 @@ coverage/
 dist-ssr/
 legacy/
 shots/
+.vercel/
+*.bak
+.claude/

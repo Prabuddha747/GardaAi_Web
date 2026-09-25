@@ -11,7 +11,8 @@ import { Footer } from './components/Footer';
 import { HomeView } from './components/HomeView';
 import { AboutView } from './components/AboutView';
 import { LearnView } from './components/LearnView';
-import { ImpactView } from './components/ImpactView';
+import { AIUpdatesView } from './components/AIUpdatesView';
+import { PrivacyView } from './components/PrivacyView';
 import { VideoPlayerModal } from './components/VideoPlayerModal';
 import { SchoolWorkshopModal } from './components/SchoolWorkshopModal';
 import { DownloadAppModal } from './components/DownloadAppModal';
@@ -81,12 +82,9 @@ export default function App({ path }: { path?: string }) {
           />
         )}
 
-        {activeTab === 'impact' && (
-          <ImpactView
-            onOpenWorkshopModal={() => setIsWorkshopModalOpen(true)}
-            onNavigateToLearn={() => handleTabChange('learn')}
-          />
-        )}
+        {activeTab === 'ai-updates' && <AIUpdatesView />}
+
+        {activeTab === 'privacy' && <PrivacyView />}
       </main>
 
       {/* Footer */}

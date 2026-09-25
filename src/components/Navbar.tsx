@@ -12,7 +12,7 @@ interface NavbarProps {
 
 // same targets as the main site's index.html navbar
 const PLAY_STORE = 'https://play.google.com/store/apps/details?id=com.gardaai.academy';
-const TABS: [ActiveTab, string][] = [['home', 'Home'], ['about', 'About'], ['learn', 'Learn'], ['impact', 'Impact']];
+const TABS: [ActiveTab, string][] = [['home', 'Home'], ['about', 'About'], ['learn', 'Learn'], ['ai-updates', 'AI Updates']];
 
 export const Navbar: React.FC<NavbarProps> = ({ activeTab, onTabChange }) => {
   const [open, setOpen] = useState(false);

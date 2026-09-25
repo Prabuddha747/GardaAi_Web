@@ -48,9 +48,6 @@ export const AboutView: React.FC<AboutViewProps> = ({ onNavigateToLearn, onOpenV
           </p>
           <div className="relative mt-8 max-w-[480px]">
             <Photo src={ASSETS.biharRiverbank} pos="center 60%" gray className="h-[190px] [mask-image:linear-gradient(to_bottom,transparent,#000_35%)] shadow-none" />
-            <Note className="absolute left-4 top-6 text-2xl" rot={-6} color="#3b3a37">
-              SAME PEOPLE.<br />BIGGER POSSIBILITIES.
-            </Note>
             <Note className="absolute right-3 top-14 text-base" rot={-5} line={false}>Bihar<br />Always</Note>
           </div>
         </div>
@@ -107,7 +104,6 @@ export const AboutView: React.FC<AboutViewProps> = ({ onNavigateToLearn, onOpenV
           <Note className="mt-3 text-xl" rot={-8}>Start where<br />people are.</Note>
         </div>
         <Photo src={ASSETS.biharRiverbank} gray pos="center 65%" className="h-[340px] lg:h-[400px]">
-          <Note className="absolute right-6 bottom-24 text-xl !text-[#f3eee2]" rot={-4} color="#f3eee2">Yahi se<br />badlav<br />shuru hota hai.</Note>
         </Photo>
         <Note className="text-2xl justify-self-center" rot={-12}>Same<br />Soil<br />Bigger<br />Dreams</Note>
       </Wrap>

@@ -1,8 +1,10 @@
 import React, { useMemo, useState } from 'react';
-import { BarChart3, ChevronRight, Clapperboard, Lightbulb, MessageCircle, Package, Play, Search, Share2, Sparkles, Wrench, Zap, ArrowRight, Youtube, Pencil } from 'lucide-react';
+import { BarChart3, ChevronRight, Clapperboard, Lightbulb, MessageCircle, Package, Play, Search, Share2, Sparkles, Wrench, Zap, ArrowRight, Youtube, Pencil, Download } from 'lucide-react';
 import { ASSETS, IMG, VIDEOS } from '../data/academyData';
 import { VideoItem } from '../types';
 import { Arrow, Note, Typed, Squiggle, Wrap } from './ui';
+
+const PLAY_STORE = 'https://play.google.com/store/apps/details?id=com.gardaai.academy';
 
 interface LearnViewProps {
   onOpenVideo: (video: VideoItem) => void;
@@ -199,14 +201,11 @@ export const LearnView: React.FC<LearnViewProps> = ({ onOpenVideo, onOpenDownloa
             <Eyebrow light>Keep learning</Eyebrow>
             <h2 className="hl-sans text-[clamp(34px,3.8vw,52px)] mt-3">Agla skill,<br /><span className="text-[#FF8a1a]">ek play button door.</span></h2>
             <p className="mt-4 text-white/85">Free videos. Simple Hinglish. Real application.</p>
-            <div className="mt-6 flex flex-wrap items-center gap-6">
-              <button onClick={() => onOpenVideo(VIDEOS[0])} className="inline-flex items-center gap-2 bg-[#FF6500] hover:bg-[#e85a00] px-6 py-3 rounded-lg font-semibold cursor-pointer"><Play className="w-4 h-4 fill-white" /> Play Latest Video</button>
-              <a href="https://youtube.com" target="_blank" rel="noreferrer" className="text-sm font-semibold inline-flex items-center gap-1 hover:underline">Visit YouTube Channel <ArrowRight className="w-4 h-4" /></a>
-            </div>
+            <a href={PLAY_STORE} target="_blank" rel="noopener noreferrer" className="mt-6 inline-flex items-center gap-2 bg-[#FF6500] hover:bg-[#e85a00] px-6 py-3 rounded-lg font-semibold"><Download className="w-4 h-4" /> Download GardaAI App</a>
           </div>
-          <button onClick={onOpenDownloadApp} className="mx-auto w-[210px] rounded-[30px] border-[6px] border-[#1a1f24] overflow-hidden shadow-2xl -rotate-3 cursor-pointer" aria-label="Download GardaAI app">
-            <img src={IMG.phone} alt="GardaAI app" className="w-full h-[380px] object-cover object-top" />
-          </button>
+          <a href={PLAY_STORE} target="_blank" rel="noopener noreferrer" className="mx-auto w-[200px] sm:w-[210px] rounded-[30px] border-[6px] border-[#1a1f24] overflow-hidden shadow-2xl -rotate-3 block" aria-label="Download GardaAI app on Google Play">
+            <img src={IMG.phone} alt="GardaAI app" loading="lazy" className="w-full block" />
+          </a>
           <div className="text-center"><Note className="text-3xl" rot={-6} color="#fff">GardaAI App</Note><div className="mt-3 text-white/85 text-sm">Videos • Prompts • AI News</div></div>
         </Wrap>
       </section>

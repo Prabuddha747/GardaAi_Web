@@ -46,7 +46,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               <li><a className={link} href={PATHS.home} onClick={(e) => { e.preventDefault(); onNavigate('home'); }}>Home</a></li>
               <li><a className={link} href={PATHS.about} onClick={(e) => { e.preventDefault(); onNavigate('about'); }}>About Us</a></li>
               <li><a className={link} href={PATHS.learn} onClick={(e) => { e.preventDefault(); onNavigate('learn'); }}>Learn</a></li>
-              <li><a className={link} href={PATHS.impact} onClick={(e) => { e.preventDefault(); onNavigate('impact'); }}>Impact</a></li>
+              <li><a className={link} href={PATHS['ai-updates']} onClick={(e) => { e.preventDefault(); onNavigate('ai-updates'); }}>AI Updates</a></li>
               <li><a className={link} href="/#faq" onClick={(e) => { e.preventDefault(); onNavigate('home', 'faq'); }}>FAQ</a></li>
               <li><a className={link} href="/#contact" onClick={(e) => { e.preventDefault(); onNavigate('home', 'contact'); }}>Contact</a></li>
             </ul>
@@ -65,7 +65,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
 
         <div className="mt-12 pt-5 border-t border-white/10 flex flex-wrap justify-between gap-2 text-sm text-white/45">
           <span>© 2026 <span className="text-[#2dd4e0]">GardaAI Academy</span> — All Rights Reserved</span>
-          <span>AI Seekho, AI Seekhao</span>
+          <span className="flex gap-4"><a className="hover:text-white" href={PATHS.privacy} onClick={(e) => { e.preventDefault(); onNavigate('privacy'); }}>Privacy Policy</a><span>AI Seekho, AI Seekhao</span></span>
         </div>
       </div>
     </footer>
