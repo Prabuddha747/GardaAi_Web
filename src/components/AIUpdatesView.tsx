@@ -35,6 +35,23 @@ const Card: React.FC<{ n: NewsItem }> = ({ n }) => (
     </article>
 );
 
+// same shape as Card; hydration-safe (fixed count, breakpoints hide the extras so it matches 3 rows at any width)
+const SkeletonCard: React.FC<{ i: number }> = ({ i }) => {
+  const bar = 'rounded bg-[#d9d2c1]';
+  return (
+    <div aria-hidden className={`${i < 3 ? 'flex' : i < 6 ? 'hidden sm:flex' : 'hidden lg:flex'} flex-col bg-white border-2 border-[#0d828a]/30 rounded-sm overflow-hidden animate-pulse`}>
+      <div className="h-[130px] bg-[#d9d2c1]" />
+      <div className="p-3 flex flex-col gap-2.5">
+        <div className={`${bar} h-2.5 w-2/5`} />
+        <div className={`${bar} h-2 w-1/4`} />
+        <div className={`${bar} h-4 w-full`} /><div className={`${bar} h-4 w-4/5`} />
+        <div className={`${bar} h-2.5 w-full mt-1`} /><div className={`${bar} h-2.5 w-full`} /><div className={`${bar} h-2.5 w-3/5`} />
+        <div className={`${bar} h-3 w-1/3 self-end mt-2`} />
+      </div>
+    </div>
+  );
+};
+
 export const AIUpdatesView: React.FC = () => {
   const [feed, setFeed] = useState<Feed | null>(null);
   const [state, setState] = useState<'loading' | 'ok' | 'stale' | 'error'>('loading');
@@ -120,8 +137,8 @@ export const AIUpdatesView: React.FC = () => {
           {state === 'error' && !feed ? (
             <p className="mt-10 text-center text-[#4b463c]">News abhi load nahi ho payi. Thodi der baad page dobara kholein.</p>
           ) : !feed ? (
-            <div className="mt-6 grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-              {Array.from({ length: 8 }, (_, i) => <div key={i} className="h-[330px] bg-[#ece6d7] animate-pulse rounded-sm" />)}
+            <div className="mt-6 grid sm:grid-cols-2 lg:grid-cols-4 gap-4" aria-busy="true" aria-label="Loading news">
+              {Array.from({ length: ROWS * 4 }, (_, i) => <SkeletonCard key={i} i={i} />)}
             </div>
           ) : list.length ? (
             <>
