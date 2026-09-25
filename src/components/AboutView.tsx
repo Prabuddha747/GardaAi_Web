@@ -95,7 +95,6 @@ export const AboutView: React.FC<AboutViewProps> = ({ onNavigateToLearn, onOpenV
     <Sheet bg={C.paper} z={40} tear={3} className="-mt-4 pt-24 pb-20">
       <Wrap className="grid lg:grid-cols-[1fr_1.5fr_90px] gap-x-8 gap-y-8 items-center">
         <div>
-          <ChapterLabel>Chapter 01 • Where it started</ChapterLabel>
           <h2 className="hl-serif text-[clamp(36px,4vw,56px)] mt-3">Ek problem jo<br />khud feel hui.</h2>
           <Squiggle w={130} className="mt-1" />
           <p className="mt-6 text-lg text-stone-700 max-w-sm leading-snug">
@@ -112,7 +111,7 @@ export const AboutView: React.FC<AboutViewProps> = ({ onNavigateToLearn, onOpenV
     {/* METHOD */}
     <Sheet bg={C.paper} z={30} tear={5} className="-mt-4 pt-24 pb-20">
       <Wrap>
-        <ChapterLabel>Chapter 02 • How learning sticks</ChapterLabel>
+
         <h2 className="hl-serif text-[clamp(28px,3.7vw,52px)] mt-3">Samjho. Dekho. Karke dekho. Apne kaam mein lagao.</h2>
         <Squiggle w={130} className="-mt-1" />
         <div className="mt-8 grid grid-cols-2 lg:grid-cols-[repeat(4,minmax(0,1fr))_120px] gap-6 items-start">
@@ -134,7 +133,6 @@ export const AboutView: React.FC<AboutViewProps> = ({ onNavigateToLearn, onOpenV
     <Sheet bg={C.paper} z={20} tear={2} className="-mt-4 pt-24 pb-20">
       <Wrap className="grid lg:grid-cols-[0.75fr_1.7fr_0.5fr] gap-x-8 gap-y-8">
         <div>
-          <ChapterLabel>Chapter 03 • People + Proof</ChapterLabel>
           <h2 className="hl-serif text-[clamp(30px,3.3vw,46px)] mt-3">Small team.<br />Growing community.</h2>
           <Squiggle w={120} className="mt-1" />
           <p className="mt-5 text-stone-600 leading-snug">A few people. A bigger purpose. From classrooms in Bihar to a growing community of curious learners.</p>

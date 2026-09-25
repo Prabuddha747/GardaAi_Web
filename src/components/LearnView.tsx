@@ -122,7 +122,7 @@ export const LearnView: React.FC<LearnViewProps> = ({ onOpenVideo, onOpenDownloa
           <div className="flex flex-wrap items-end justify-between gap-4">
             <div>
               <h2 className="hl-sans text-4xl">All Videos — <span className="text-[#0d828a]">Play Here</span></h2>
-              <div className="mt-1.5 text-sm text-stone-600 flex items-center gap-2"><Youtube className="w-6 h-6 text-red-600 fill-red-600 stroke-white" /> <b className="text-stone-900">YouTube</b> se synced • Naya video automatically yahan dikhega</div>
+              <div className="mt-1.5 text-sm text-stone-600 flex items-center gap-2"><Youtube className="w-6 h-6 text-red-600 fill-red-600 stroke-white" /> <b className="text-stone-900">YouTube</b></div>
             </div>
             <div className="flex items-center gap-3 text-sm">
               <label className="flex items-center gap-2 bg-white border border-stone-300 rounded-lg px-3 py-2 w-56"><Search className="w-4 h-4 text-stone-400" /><input value={q} onChange={(e) => setQ(e.target.value)} placeholder="Search videos" className="outline-none w-full bg-transparent" /></label>
@@ -189,7 +189,6 @@ export const LearnView: React.FC<LearnViewProps> = ({ onOpenVideo, onOpenDownloa
           </div>
           <div className="relative rounded-xl overflow-hidden h-[200px] shadow-lg">
             <img src={ASSETS.studentLaptop} alt="" className="w-full h-full object-cover" />
-            <Note className="absolute top-3 right-3 text-lg" rot={-8} color="#222">Ideas to<br />Real Output ✓</Note>
           </div>
         </Wrap>
       </section>
