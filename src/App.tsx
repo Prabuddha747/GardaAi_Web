@@ -64,7 +64,7 @@ export default function App({ path }: { path?: string }) {
       />
 
       {/* Main Content Area */}
-      <main className="flex-1 pt-16">
+      <main className="flex-1 pt-16 isolate">
         {activeTab === 'home' && <HomeView />}
 
         {activeTab === 'about' && (
