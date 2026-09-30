@@ -1,6 +1,5 @@
 import React from 'react';
 import { X, BookOpen, Heart } from 'lucide-react';
-import { ASSETS } from '../data/academyData';
 
 interface ReadStoryModalProps {
   isOpen: boolean;
@@ -46,11 +45,11 @@ export const ReadStoryModal: React.FC<ReadStoryModalProps> = ({
           </div>
 
           <div className="relative rounded-xl overflow-hidden aspect-video border border-stone-200">
-            <img
-              src={ASSETS.heroClassroom}
-              alt="GardaAI Classroom"
+            <video
+              src="/videos/gec_bihar.mp4"
+              controls
+              playsInline
               className="w-full h-full object-cover"
-              referrerPolicy="no-referrer"
             />
             <div className="absolute bottom-2 right-2 bg-black/70 text-white text-[11px] px-2 py-0.5 rounded font-handwritten">
               Same People. Bigger Possibilities.

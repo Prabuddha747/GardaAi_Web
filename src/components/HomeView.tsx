@@ -81,8 +81,8 @@ const community = [
 ] as const;
 
 const team = [
-  ['Punit Gupta', 'team-punit.png'], ['Prince Singh', 'team-prince.jpeg'], ['Khushi Gupta', 'team-khushi.jpeg'],
-  ['Vivek Kumar', 'team-vivek.png'], ['Prabuddha Verma', 'team-prabuddha.jpeg'],
+  ['Punit Gupta', 'team-punit.jpg'], ['Elvin Rajputt', 'team-prince.jpeg'], ['Khushi Gupta', 'team-khushi.jpeg'],
+  ['Vivek Kumar', 'team-vivek.jpg'], ['Prabuddha Verma', 'team-prabuddha.jpeg'],
 ] as const;
 
 const faqs = [
@@ -172,7 +172,7 @@ export const HomeView: React.FC = () => {
               <h1 className="h1 rv d1">Learn <span style={{ color: '#0E9F9A' }}>AI.</span><br />Think Better.<br />Build <span style={{ color: '#FF8000' }}>Faster.</span></h1>
             </div>
             <div className="h-vis rv d2">
-              <div className="h-photo"><img src="/images/hero-session.png" alt="GardaAI live learning session" fetchPriority="high" /></div>
+              <div className="h-photo"><img src="/images/hero-session.jpg" alt="GardaAI live learning session" fetchPriority="high" /></div>
               <div className="h-phone"><img src="/images/phone-app.jpeg" alt="GardaAI app screen" /></div>
               <div className="h-fcard fc-2"><div className="fc-ic" style={{ background: 'linear-gradient(180deg, #F16200, #FFA143)' }}><svg width="20" height="20" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round"><path d="M13 15v-1a3 3 0 0 0-3-3H5a3 3 0 0 0-3 3v1" /><circle cx="7.5" cy="6" r="3" /><path d="M18 15v-1a3 3 0 0 0-2.2-2.9M13 3.1A3 3 0 0 1 13 9" /></svg></div><div><strong style={{ color: '#fff' }}>Hinglish Learning</strong><span style={{ color: 'rgba(255,255,255,.85)' }}>Simple language, deeper understanding</span></div></div>
             </div>

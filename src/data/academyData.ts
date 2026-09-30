@@ -3,7 +3,7 @@ export { VIDEOS } from './videos';
 
 export const ASSETS = {
   heroClassroom: '/images/hero_bihar_classroom_1790257525736.jpg',
-  biharRiverbank: '/images/bihar_riverbank_village_1790257536777.jpg',
+  biharRiverbank: '/images/about_origin_story.jpg',
   shopkeeperPhone: '/images/indian_shopkeeper_phone_1790257563176.jpg',
   studentLaptop: '/images/indian_student_laptop_1790257581252.jpg',
   videoInstructor: '/images/gardaai_youtube_instructor_1790257596078.jpg',
@@ -23,10 +23,10 @@ export const ABOUT_CHAPTERS: Chapter[] = [
 ];
 
 export const TEAM_MEMBERS = [
-  { name: 'Punit Gupta', photo: '/images/team/team-punit.png', role: 'Founder & Lead Educator' },
-  { name: 'Prince Singh', photo: '/images/team/team-prince.jpeg', role: 'Community & School Outreach' },
+  { name: 'Punit Gupta', photo: '/images/team/team-punit.jpg', role: 'Founder & Lead Educator' },
+  { name: 'Elvin Rajputt', photo: '/images/team/team-prince.jpeg', role: 'Community & School Outreach' },
   { name: 'Khushi Gupta', photo: '/images/team/team-khushi.jpeg', role: 'Content & Curriculum Design' },
-  { name: 'Vivek Kumar', photo: '/images/team/team-vivek.png', role: 'Operations & District Lead' },
+  { name: 'Vivek Kumar', photo: '/images/team/team-vivek.jpg', role: 'Operations & District Lead' },
   { name: 'Prabuddha Verma', photo: '/images/team/team-prabuddha.jpeg', role: 'Engineering & Technology Lead' },
 ];
 

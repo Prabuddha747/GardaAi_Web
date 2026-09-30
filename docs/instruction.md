@@ -575,7 +575,7 @@ Growing community.
 People:
 
 Punit Gupta
-Prince Singh
+Elvin Rajputt
 Khushi Gupta
 Vivek Kumar
 Prabuddha Verma

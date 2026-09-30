@@ -1,7 +1,6 @@
 import React from 'react';
 import { ArrowRight, Play } from 'lucide-react';
 import { ABOUT_CHAPTERS, ASSETS, TEAM_MEMBERS, VIDEOS } from '../data/academyData';
-import { videoSrc } from '../data/videos';
 import { VideoItem } from '../types';
 import { Arrow, C, Count, Typed, ChapterLabel, Note, Photo, Sheet, Squiggle, Wrap } from './ui';
 
@@ -18,9 +17,9 @@ const STATS = [
 ];
 
 const METHOD = [
-  ['Simple concept', ASSETS.heroClassroom, '85% 30%', 1.5],
-  ['Live demonstration', ASSETS.heroClassroom, '10% 40%', 1.6],
-  ['Hands-on practice', ASSETS.studentLaptop, 'center', 1],
+  ['Simple concept', '/images/about_simple_concept.jpg', 'center 28%', 1],
+  ['Live demonstration', '/images/about_live_demo.jpg', 'center 42%', 1],
+  ['Hands-on practice', '/images/about_hands_on.jpg', 'center 38%', 1],
   ['Real-life application', ASSETS.shopkeeperPhone, 'center', 1],
 ] as const;
 
@@ -46,10 +45,7 @@ export const AboutView: React.FC<AboutViewProps> = ({ onNavigateToLearn, onOpenV
           <p className="mt-5 text-lg text-stone-600 max-w-md leading-snug">
             Bihar ke ek chhote se gaon se nikli ek simple baat: AI tabhi sabka hoga, jab sabki language mein aayegi.
           </p>
-          <div className="relative mt-8 max-w-[480px]">
-            <Photo src={ASSETS.biharRiverbank} pos="center 60%" gray className="h-[190px] [mask-image:linear-gradient(to_bottom,transparent,#000_35%)] shadow-none" />
-            <Note className="absolute right-3 top-14 text-base" rot={-5} line={false}>Bihar<br />Always</Note>
-          </div>
+          <Note className="mt-8 text-base" rot={-5} line={false}>Bihar<br />Always</Note>
         </div>
 
         <div className="relative">
@@ -58,7 +54,7 @@ export const AboutView: React.FC<AboutViewProps> = ({ onNavigateToLearn, onOpenV
             <span>The GardaAI Story</span>
           </div>
           <div className="relative aspect-video rounded-md overflow-hidden shadow-xl border-4 border-[#101820] bg-black">
-            <iframe className="absolute inset-0 w-full h-full" src={videoSrc('ABOUT_1')} loading="lazy" allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture" allowFullScreen title="The GardaAI Story" />
+            <video className="absolute inset-0 w-full h-full object-cover" src="/videos/punit_story.mp4" controls playsInline title="The GardaAI Story" />
           </div>
           <div className="mt-5 grid sm:grid-cols-[1.2fr_1fr] gap-6 items-start">
             <div>
@@ -81,7 +77,7 @@ export const AboutView: React.FC<AboutViewProps> = ({ onNavigateToLearn, onOpenV
               Talent har jagah hai. AI education bhi har language tak pahunchni chahiye.
               <footer className="text-xs text-stone-500 mt-3 flex items-center gap-2.5">
                 <span className="w-14 h-14 shrink-0 rounded-full overflow-hidden border-2 border-white shadow block relative">
-                  <img src="/images/mentor.png" alt="Punit Gupta, Founder &amp; Mentor" loading="lazy" className="absolute max-w-none" style={{ width: '270%', left: '-158%', top: '-62%' }} />
+                  <img src="/images/mentor.jpg" alt="Punit Gupta, Founder &amp; Mentor" loading="lazy" className="absolute max-w-none" style={{ width: '270%', left: '-158%', top: '-62%' }} />
                 </span>
                 <span>— Punit Gupta, Founder &amp; Mentor</span>
               </footer>
@@ -102,8 +98,7 @@ export const AboutView: React.FC<AboutViewProps> = ({ onNavigateToLearn, onOpenV
           </p>
           <Note className="mt-3 text-xl" rot={-8}>Start where<br />people are.</Note>
         </div>
-        <Photo src={ASSETS.biharRiverbank} gray pos="center 65%" className="h-[340px] lg:h-[400px]">
-        </Photo>
+        <Photo src={ASSETS.biharRiverbank} className="h-[340px] lg:h-[400px]" />
         <Note className="text-2xl justify-self-center" rot={-12}>Same<br />Soil<br />Bigger<br />Dreams</Note>
       </Wrap>
     </Sheet>
@@ -117,7 +112,7 @@ export const AboutView: React.FC<AboutViewProps> = ({ onNavigateToLearn, onOpenV
         <div className="mt-8 grid grid-cols-2 lg:grid-cols-[repeat(4,minmax(0,1fr))_120px] gap-6 items-start">
           {METHOD.map(([label, src, pos, scale], i) => (
             <div key={label} className="relative">
-              <Photo src={src} pos={pos} scale={scale} gray={false} className="aspect-[4/3] lg:h-[210px] w-full">
+              <Photo src={src} pos={pos} scale={scale} gray={false} className="aspect-[4/3] lg:h-[280px] w-full">
                 <span className="absolute left-2 top-2 w-8 h-8 rounded-full bg-[#101820] text-white text-xs font-mono grid place-items-center">0{i + 1}</span>
               </Photo>
               {i < 3 && <Arrow className="hidden lg:block absolute -right-[38px] top-[45%] z-10" />}
@@ -144,14 +139,7 @@ export const AboutView: React.FC<AboutViewProps> = ({ onNavigateToLearn, onOpenV
           </div>
         </div>
         <div>
-          <div className="grid grid-cols-[1.25fr_0.9fr_0.6fr] grid-rows-2 gap-3 h-[420px]">
-            <Photo src={ASSETS.heroClassroom} pos="20% 60%" scale={1.3} className="row-span-1" />
-            <Photo src={ASSETS.videoInstructor} pos="85% 40%" scale={1.4} />
-            <div className="row-span-1 bg-[#e8dfca] p-3 grid place-items-center text-center"><Note rot={-8} className="text-lg">Better Learners<br />A Brighter Bihar</Note></div>
-            <Photo src={ASSETS.studentLaptop} />
-            <div className="bg-[#e8dfca] p-3 grid place-items-center text-center"><Note rot={-8} className="text-lg">Questions today<br />Solutions tomorrow</Note></div>
-            <Photo src={ASSETS.heroClassroom} pos="95% 30%" scale={1.6} />
-          </div>
+          <video src="/videos/gec_bihar.mp4" autoPlay muted loop playsInline controls className="w-full h-[420px] object-cover rounded-md shadow-[0_3px_10px_rgba(35,25,15,0.25)] bg-[#d9d2c1]" />
           <p className="text-[11px] text-stone-600 mt-1.5">Real classrooms. Real questions. Real progress.</p>
         </div>
         <dl className="divide-y divide-stone-400 self-start">
