@@ -342,7 +342,7 @@ export const HomeView: React.FC = () => {
             <div className="team-track">
               {[...team, ...team].map(([n, img], i) => (
                 <div className="tm2" key={i} aria-hidden={i >= team.length || undefined}>
-                  <div className="tm2-ph"><img src={`/images/team/${img}`} alt="" loading="lazy" style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: 14 }} /></div>
+                  <div className="tm2-ph"><img src={`/images/team/${img}`} alt={n} loading="lazy" style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: 14 }} /></div>
                   <div className="tm2-n">{n}</div>
                 </div>
               ))}

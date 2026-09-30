@@ -98,7 +98,7 @@ export const AboutView: React.FC<AboutViewProps> = ({ onNavigateToLearn, onOpenV
           </p>
           <Note className="mt-3 text-xl" rot={-8}>Start where<br />people are.</Note>
         </div>
-        <Photo src={ASSETS.biharRiverbank} className="h-[340px] lg:h-[400px]" />
+        <Photo src={ASSETS.biharRiverbank} alt="Punit Gupta speaking to students at a GardaAI Academy workshop in Bihar" className="h-[340px] lg:h-[400px]" />
         <Note className="text-2xl justify-self-center" rot={-12}>Same<br />Soil<br />Bigger<br />Dreams</Note>
       </Wrap>
     </Sheet>
@@ -112,7 +112,7 @@ export const AboutView: React.FC<AboutViewProps> = ({ onNavigateToLearn, onOpenV
         <div className="mt-8 grid grid-cols-2 lg:grid-cols-[repeat(4,minmax(0,1fr))_120px] gap-6 items-start">
           {METHOD.map(([label, src, pos, scale], i) => (
             <div key={label} className="relative">
-              <Photo src={src} pos={pos} scale={scale} gray={false} className="aspect-[4/3] lg:h-[280px] w-full">
+              <Photo src={src} alt={label} pos={pos} scale={scale} gray={false} className="aspect-[4/3] lg:h-[280px] w-full">
                 <span className="absolute left-2 top-2 w-8 h-8 rounded-full bg-[#101820] text-white text-xs font-mono grid place-items-center">0{i + 1}</span>
               </Photo>
               {i < 3 && <Arrow className="hidden lg:block absolute -right-[38px] top-[45%] z-10" />}

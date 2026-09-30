@@ -55,7 +55,7 @@ const YtPlayer: React.FC<{ video: VideoItem; autoplay?: boolean; big?: boolean }
     );
   return (
     <button onClick={() => setOn(true)} className="group absolute inset-0 w-full h-full cursor-pointer" aria-label={`Play ${video.title}`}>
-      <img src={video.thumbnail} alt="" className="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
+      <img src={video.thumbnail} alt={video.title} className="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
       <span className="absolute inset-0 bg-black/20" />
       <span className="absolute inset-0 grid place-items-center">
         <span className={`${big ? 'w-16 h-16' : 'w-11 h-11'} rounded-full bg-white/90 grid place-items-center group-hover:scale-110 transition`}><Play className={`${big ? 'w-6 h-6' : 'w-4 h-4'} fill-[#083744] text-[#083744]`} /></span>
@@ -155,7 +155,7 @@ export const LearnView: React.FC<LearnViewProps> = ({ onOpenVideo, onOpenDownloa
           <div className="mt-8 grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {GOALS.map(([t, d, vi]) => (
               <button key={t} onClick={() => onOpenVideo(VIDEOS[vi % VIDEOS.length])} className="flex gap-3 text-left rounded-xl border border-white/15 bg-white/5 hover:bg-white/10 p-2.5 cursor-pointer transition">
-                <img src={VIDEOS[vi % VIDEOS.length].thumbnail} alt="" className="w-[38%] h-[120px] rounded-lg object-cover" />
+                <img src={VIDEOS[vi % VIDEOS.length].thumbnail} alt={VIDEOS[vi % VIDEOS.length].title} className="w-[38%] h-[120px] rounded-lg object-cover" />
                 <span className="flex-1 flex flex-col">
                   <b className="text-[15px]">{t}</b>
                   <span className="text-xs text-white/75 mt-1.5 leading-snug">{d}</span>
